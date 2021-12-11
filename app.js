@@ -4,6 +4,14 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 
+const morgan = require('morgan');
+const cors = require('cors');
+const compression = require('compression');
+const sanitizeData = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+const helmet = require('helmet');
+const hpp = require('hpp');
+
 const { StatusCodes } = require('http-status-codes');
 const path = require('path');
 
@@ -17,6 +25,22 @@ const connectDB = require('./db/connect');
 
 app.use(express.static(`${__dirname}/public`));
 
+//middleware
+app.use(helmet());
+app.use(cors());
+
+app.options('*', cors());
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+app.use(sanitizeData());
+app.use(xss());
+
+//prevent parameter pollution
+app.use(hpp());
+
 // Body parser
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
@@ -24,6 +48,8 @@ app.use(express.urlencoded({ extended: true }));
 // Template Engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(compression());
 
 // routes
 app.get('/', (req, res) => {
