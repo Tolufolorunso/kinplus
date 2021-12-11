@@ -9,6 +9,15 @@ const UserSchema = new mongoose.Schema(
     lastname: String,
     email: {
       type: String,
+      required: true,
+      unique: true
+    },
+    religious: {
+      type: String,
+      required: true
+    },
+    gender: {
+      type: String,
       required: true
     },
     phone: String,
