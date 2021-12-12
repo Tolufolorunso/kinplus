@@ -1,6 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
+*,
+::after,
+::before {
   box-sizing: border-box;
 }
 
@@ -11,8 +11,29 @@ html,
   width: 100%;
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #fff;
+}
+
+.img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .main {
@@ -21,82 +42,139 @@ body {
   justify-content: space-between;
 }
 
-header {
-  max-width: 100vw;
-  height: calc(100vh - 100px);
-  position: relative;
-}
-
-nav {
+.nav {
   background-color: #0d285b;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 4em;
   height: 70px;
 }
 
-.logo {
-  flex: 1;
-}
-
-.social {
-  flex: 1;
+.nav > div {
   display: flex;
-  justify-content: flex-end;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.social i {
-  font-size: 1.8rem !important;
-  color: white;
-}
-
-.logo img {
+.logo {
   width: 150px;
 }
 
-.carousel-item {
-  height: 90vh !important;
+.logo img {
+  max-width: 100%;
+  height: auto;
 }
 
-.carousel-item img {
-  object-fit: cover;
+.social {
+  display: flex;
+  gap: 10px;
+}
+
+.social i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.header {
+  flex: 1;
+}
+
+#slider,
+.wrap,
+.slide-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  /* color: #0d285b; */
+  height: calc(100vh - 140px);
+}
+
+.wrap {
+  position: relative;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('./images/slide1.png');
+}
+
+.slide2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('./images/slide2.png');
+}
+.slide3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('./images/slide1.png');
+}
+
+.slide-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  background-color: #419cf9;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: #0d285b;
+}
+
+#arrow-left {
+  left: 0;
+  margin-left: 30px;
+}
+
+#arrow-right {
+  right: 0;
+  margin-right: 30px;
 }
 
 .hero {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff;
-  z-index: 2;
 }
 
 .hero h1 {
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 3px;
-}
-.hero hr {
-  width: 90%;
-  margin: auto;
-  margin-top: 1px;
+  line-height: 1;
 }
 
 .hero span {
   font-size: clamp(1.5rem, 10vw, 5rem);
-  font-weight: 700;
+  font-weight: 500;
   word-spacing: 3px;
   display: block;
   letter-spacing: 5px;
+}
+
+.hero hr {
+  width: 80%;
+  margin: auto;
   margin-top: -10px;
 }
 
 .hero p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-style: italic;
+  margin-top: -1px;
 }
 
 .btns {
@@ -122,8 +200,6 @@ nav {
 .btn.tour {
   color: #0d285b;
   background-color: #fff;
-  font-variant: normal;
-  font-weight: bold;
   transition: all 0.2s ease-in;
   text-decoration: none;
   outline: none;
@@ -138,8 +214,8 @@ button.btn:hover {
 }
 
 .footer {
-  font-style: italic;
-  font-weight: 500;
+  /* margin-top: auto; */
+  font-weight: 400;
   background-color: #0d285b;
   color: #fff;
   display: flex;
@@ -147,11 +223,10 @@ button.btn:hover {
   align-items: center;
   text-align: center;
   height: 70px;
-  padding: 0 4em;
 }
 
 .footer p {
-  padding: 1.5rem 0;
+  font-size: 14px;
 }
 
 /* form styling */
@@ -180,6 +255,7 @@ button.btn:hover {
   border-radius: 10px;
   transition: all 0.9s ease;
   text-align: center;
+  color: #000;
   margin-top: 250px;
 }
 
@@ -253,7 +329,7 @@ button.btn:hover {
   background-color: #0d285b;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .modal {
     width: 100%;
     padding-left: 10px;
@@ -264,8 +340,13 @@ button.btn:hover {
     width: 100%;
     padding: 10px;
   }
-  .social {
-    display: none;
+
+  /* nav {
+    width: 100% !important;
+  } */
+
+  .social i {
+    font-size: 1.4rem !important;
   }
 
   .hero {
@@ -283,10 +364,10 @@ button.btn:hover {
     width: 70%;
   }
 
-  .logo {
+  /* .logo {
     display: flex;
     justify-content: center;
-  }
+  } */
 
   .logo img {
     width: 120px;
