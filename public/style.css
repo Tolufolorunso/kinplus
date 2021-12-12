@@ -99,16 +99,16 @@ body {
 
 .slide1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('./images/slide1.png');
+    url('images/slide1.png');
 }
 
 .slide2 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('./images/slide2.png');
+    url('images/slide2.png');
 }
 .slide3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('./images/slide1.png');
+    url('images/slide1.png');
 }
 
 .slide-content {
@@ -124,8 +124,8 @@ body {
   top: 50%;
   margin-top: -50px;
   background-color: #419cf9;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -391,6 +391,18 @@ button.btn:hover {
   .btns button,
   .btns .tour {
     width: 100%;
+  }
+  .arrow {
+    width: 30px;
+    height: 30px;
+    top: 55%;
+  }
+  #arrow-left {
+    margin-left: 15px;
+  }
+
+  #arrow-right {
+    margin-right: 15px;
   }
 }
 
