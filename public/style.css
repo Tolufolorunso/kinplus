@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: #fff;
   font-weight: 400;
   line-height: 1.75;
@@ -84,7 +84,7 @@ body {
   width: 100%;
   overflow: hidden;
   /* color: #0d285b; */
-  height: calc(100vh - 140px);
+  height: calc(100vh - 130px);
 }
 
 .wrap {
@@ -93,22 +93,27 @@ body {
 
 .slide {
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
 }
 
 .slide1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('images/slide1.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('images/slide1.jpg');
 }
 
 .slide2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('images/slide2.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('images/slide2.jpg');
 }
 .slide3 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('images/slide1.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('images/slide3.jpg');
+}
+
+.slide4 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('images/slide4.jpg');
 }
 
 .slide-content {
@@ -122,7 +127,7 @@ body {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  margin-top: -50px;
+  margin-top: -40px;
   background-color: #419cf9;
   width: 40px;
   height: 40px;
@@ -132,28 +137,33 @@ body {
   transition: all 0.3s ease;
 }
 
+.arrow i {
+  font-size: 1.2rem;
+}
+
 .arrow:hover {
   background-color: #0d285b;
 }
 
 #arrow-left {
   left: 0;
-  margin-left: 30px;
+  margin-left: 115px;
 }
 
 #arrow-right {
   right: 0;
-  margin-right: 30px;
+  margin-right: 115px;
 }
 
 .hero {
   text-align: center;
+  margin-top: -50px;
 }
 
 .hero h1 {
   font-size: 2rem;
-  font-weight: 300;
-  letter-spacing: 3px;
+  font-weight: 400;
+  letter-spacing: 1px;
   line-height: 1;
 }
 
@@ -162,7 +172,7 @@ body {
   font-weight: 500;
   word-spacing: 3px;
   display: block;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
 }
 
 .hero hr {
@@ -186,7 +196,7 @@ body {
 
 .btn {
   padding: 10px 30px;
-  border-radius: 3px;
+  border-radius: 10px;
   background-color: transparent;
   z-index: 1;
   color: #fff;
@@ -197,6 +207,10 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+.btn.register {
+  padding: 10px 40px;
+  text-decoration: none;
+}
 .btn.tour {
   color: #0d285b;
   background-color: #fff;
@@ -222,7 +236,7 @@ button.btn:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 70px;
+  height: 60px;
 }
 
 .footer p {
@@ -329,7 +343,29 @@ button.btn:hover {
   background-color: #0d285b;
 }
 
+.alert {
+  position: fixed;
+  top: 45px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 5;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  transition: all 0.6s ease-in;
+  opacity: 0;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 900px) {
+  .alert {
+    width: 100%;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
   .modal {
     width: 100%;
     padding-left: 10px;
@@ -389,8 +425,13 @@ button.btn:hover {
   }
 
   .btns button,
-  .btns .tour {
+  .btns .tour,
+  .btn.register {
     width: 100%;
+  }
+
+  .btns {
+    padding-top: 30px;
   }
   .arrow {
     width: 30px;
@@ -404,19 +445,7 @@ button.btn:hover {
   #arrow-right {
     margin-right: 15px;
   }
-}
-
-.alert {
-  position: fixed;
-  top: 45px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  z-index: 5;
-  padding: 10px 20px;
-  font-size: 1.4rem;
-  transition: all 0.6s ease-in;
-  opacity: 0;
-  border-radius: 3px;
-  pointer-events: none;
+  .footer p {
+    font-size: 12px;
+  }
 }
